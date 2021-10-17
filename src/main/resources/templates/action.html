@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<title>出力</title>
+</head>
+<body>
+	<main class="container">
+		<h1>フォームへの入力を出力します</h1>
+		<p >メールアドレス：<span th:text="${mainForm.email}">email</span></p>
+		<p >整数：<span th:text="${mainForm.integer}">integer</span></p>
+		<p >パスワード1：<span th:text="${mainForm.password1}">password1</span></p>
+		<p >パスワード2：<span th:text="${mainForm.password2}">password2</span></p>
+	</main>
+</body>
+</html>

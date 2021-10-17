@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Formに初期値設定</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+	<main class="container">
+		<section class="border p-1 mb-3">
+			<form method="post" th:action="@{/action}" th:object="${mainForm}">
+				<div class="mb-3">
+					<label for="email" class="form-label">メールアドレス（空でない、メールアドレスとして妥当）</label>
+					<!--/*
+					th:fieldに指定したフィールドに入力エラーがあったら
+					th:errorclassの内容をclassに追加する。
+					*/-->
+					<input type="text" class="form-control" th:errorclass="is-invalid"
+						th:field="*{email}">
+					<!--/* th:errorsに指定したフィールドのエラー内容を表示 */-->
+					<p class="invalid-feedback" th:errors="*{email}"></p>
+				</div>
+				<div class="mb-3">
+					<label for="integer" class="form-label">整数（整数、10以上100以下、空白OK）</label> <input
+						type="text" class="form-control" th:errorclass="is-invalid"
+						th:field="*{integer}">
+					<p class="invalid-feedback" th:errors="*{integer}"></p>
+				</div>
+				<div class="mb-3">
+					<label for="password1" class="form-label">パスワード1（半角英数、8文字以上16文字以下）</label>
+					<input type="text" class="form-control" th:errorclass="is-invalid"
+						th:field="*{password1}">
+					<p class="invalid-feedback" th:errors="*{password1}"></p>
+				</div>
+				<div class="mb-3">
+					<label for="password2" class="form-label">パスワード2（半角英数、8文字以上16文字以下、パスワード1と等しい）</label>
+					<input type="text" class="form-control" th:errorclass="is-invalid"
+						th:field="*{password2}">
+					<p class="invalid-feedback" th:errors="*{password2}"></p>
+					<!--/* isSamePasswordの結果はsamePasswordに格納される */-->
+					<p class="invalid-feedback"
+						th:errors="*{samePassword}" style="display: block;"></p>
+				</div>
+				<div>
+					<button type="submit" class="btn btn-primary">送信</button>
+				</div>
+
+			</form>
+		</section>
+	</main>
+</body>
+</html>
