@@ -1,7 +1,5 @@
 package blog.tsuchiya.tutorial.step4.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,11 +8,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import blog.tsuchiya.tutorial.step4.controller.form.MainForm;
+import jakarta.validation.Valid;
 
 @Controller
 public class MainController {
 
-	@GetMapping
+	@GetMapping("/")
 	public String index(Model model) {
 		model.addAttribute("mainForm", new MainForm());
 		return "index";
